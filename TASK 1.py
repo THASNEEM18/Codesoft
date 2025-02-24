@@ -4,7 +4,7 @@ import sqlite3 as sql
 
 # Database Operations
 class TaskDatabase:
-    def _init_(self, db_name='listOfTasks.db'):
+    def __init__(self, db_name='listOfTasks.db'):
         self.conn = sql.connect(db_name)
         self.cursor = self.conn.cursor()
         self.cursor.execute('CREATE TABLE IF NOT EXISTS tasks (title TEXT, completed INTEGER)')
@@ -30,7 +30,7 @@ class TaskDatabase:
 
 # GUI for Task Management
 class TaskManager:
-    def _init_(self, root):
+    def __init__(self, root):
         self.db = TaskDatabase()
         self.tasks = []
 
@@ -141,7 +141,7 @@ class TaskManager:
         self.db.close()
         guiWindow.destroy()
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     guiWindow = Tk()
     app = TaskManager(guiWindow)
     guiWindow.mainloop()
