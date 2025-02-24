@@ -15,7 +15,7 @@ db.close()
 
 
 class GUI():
-    def _init_(self,master):
+    def __init__(self,master):
         self.master = master
         self.username = StringVar()
         self.passwordlen = IntVar()
@@ -155,7 +155,7 @@ class GUI():
         self.generated_password_textfield.delete(0, 25)
 
 
-if _name=='main_':
+if __name__=='__main__':
     root = Tk()
     pass_gen = GUI(root)
     root.mainloop()
